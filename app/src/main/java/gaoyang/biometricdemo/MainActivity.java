@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onSucceeded() {
 
                             Toast.makeText(MainActivity.this, "onSucceeded", Toast.LENGTH_SHORT).show();
+                            
+                            authenticate();     // perform authentication 
                         }
 
                         @Override
@@ -73,4 +75,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    
+    private void authenticate(){
+        
+        // root access required
+        
+        try {
+            long timeout = 250L;
+            Process p1 = Runtime.getRuntime().exec("su -c input tap 210 888");      // perform a tap event on  x, y position
+            TimeUnit.MILLISECONDS.sleep(timeout);                                   // pause before next command
+            Process p2 = Runtime.getRuntime().exec("su -c input keyevent 25");      // simulate a key press, refer here https://stackoverflow.com/questions/7789826/adb-shell-input-events
+            TimeUnit.MILLISECONDS.sleep(timeout);
+            
+        } catch (IOException | InterruptedException e){
+            //TODO;
+        }
+        
+    }
+        
 }
