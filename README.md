@@ -8,7 +8,7 @@ Add your pin sequence in the `authenticate()` function in [`MainActivity.java`](
 
 This works by injecting events which requires root access for the app to execute shell commands. More info [`here`](https://stackoverflow.com/questions/7789826/adb-shell-input-events)
 
-You may also need to implement this in a `Service ` to make it run in the background
+You may also need to implement this in a `Service` to make it run in the background
 
 
 
